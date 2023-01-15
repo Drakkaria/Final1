@@ -1,24 +1,15 @@
-﻿string[] array1 = new string[5] {"miu", "cat", "hello", "world", "love"};
-string[] array2 = new string[array1.Length];
-void SecondArrayWithIF(string[] array1, string[] array2)
+﻿
+string[] array = {"miu","cat","hello","love","world"};
+ 
+var result = new string[array.Length];
+var realSize = 0;
+foreach (var value in array)
 {
-    int count = 0;
-    for (int i = 0; i < array1.Length; i++)
+    if (value.Length <= 3)
     {
-    if(array1[i].Length <= 3)
-        {
-        array2[count] = array1[i];
-        count++;
-        }
+        result[realSize] = value;
+        realSize++;
     }
 }
-void PrintArray(string[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
-SecondArrayWithIF(array1, array2);
-PrintArray(array2);
+ 
+Console.Write(string.Join(Environment.NewLine, result, 0, realSize));
